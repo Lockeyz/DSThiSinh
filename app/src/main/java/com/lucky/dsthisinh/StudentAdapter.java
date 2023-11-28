@@ -1,9 +1,11 @@
 package com.lucky.dsthisinh;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -35,6 +37,13 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
         holder.id.setText(student.getId());
         holder.name.setText(student.getName());
         holder.result.setText(student.getResult());
+        holder.layout_student.setOnClickListener(view -> {
+            Intent intent = new Intent(context, DetailStudentActivity.class);
+            intent.putExtra("id", student.getId());
+            intent.putExtra("name", student.getName());
+            intent.putExtra("result", student.getResult());
+            context.startActivity(intent);
+        });
     }
 
     @Override
@@ -47,12 +56,14 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
         TextView id;
         TextView name;
         TextView result;
+        LinearLayout layout_student;
 
         public StudentViewHolder(@NonNull View itemView) {
             super(itemView);
             id = itemView.findViewById(R.id.id_tv);
             name = itemView.findViewById(R.id.name_tv);
             result = itemView.findViewById(R.id.result_tv);
+            layout_student = itemView.findViewById(R.id.layout_student);
         }
     }
 }

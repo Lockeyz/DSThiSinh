@@ -3,14 +3,15 @@ package com.lucky.dsthisinh;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class DetailStudentActivity extends AppCompatActivity {
 
-    TextView id;
-    TextView name;
-    TextView result;
+    EditText id;
+    EditText name;
+    EditText result;
     LinearLayout layout_student;
 
     StudentModel student;
